@@ -41,6 +41,10 @@ Fill in parameter `query` with content after `http://export.arxiv.org/api/query?
 
 <RouteEn author="nczitzk" example="/bioone/featured" path="/bioone/featured"/>
 
+### Journals
+
+<RouteEn author="nczitzk" example="/bioone/journals/acta-chiropterologica" path="/bioone/journals/:journal?" :paramsDesc="['Journals, can be found in URL']"/>
+
 ## Cell Journal
 
 <RouteEn author="yech1990" example="/cell/cell/current" path="/cell/cell/:category" supportScihub="1" />
@@ -112,17 +116,23 @@ The parameter id in the route is the id in the URL of the user's Google Scholar 
 
 ### Latest Research
 
-<RouteEn author="Derekmini auto-bot-ty" example="/ieee/70/latest/vol" path="/:journal/latest/vol/:sortType?" :paramsDesc="['Journal Name, get it from punumber of the URL','Sort Type, default: `vol-only-seq`, get it from sortType of the URL']" radar="1" rssbud="1">
+<RouteEn author="Derekmini auto-bot-ty" example="/ieee/70/latest/vol" path="/ieee/:journal/latest/vol/:sortType?" :paramsDesc="['Journal Name, get it from punumber of the URL','Sort Type, default: `vol-only-seq`, get it from sortType of the URL']" radar="1" rssbud="1">
 
 </RouteEn>
 
 ### Latest Research (Last 2 month)
 
-<RouteEn author="Derekmini auto-bot-ty" example="/ieee/78/latest/date" path="/:journal/latest/date/:sortType?" :paramsDesc="['Journal Name, get it from punumber of the URL','Sort Type, default: `vol-only-seq`, get it from sortType of the URL']" radar="1" rssbud="1">
+<RouteEn author="Derekmini auto-bot-ty" example="/ieee/78/latest/date" path="/ieee/:journal/latest/date/:sortType?" :paramsDesc="['Journal Name, get it from punumber of the URL','Sort Type, default: `vol-only-seq`, get it from sortType of the URL']" radar="1" rssbud="1">
 
 New items may always at the end of the list, when the number of paper entries is too large. So we only filtered those articles published in the current month and the previous month.
 
 </RouteEn>
+
+## INFORMS
+
+### Category
+
+<RouteEn author="Fatpandac" example="/informs/mnsc" path="/informs/:category?" :paramsDesc="['Category, can be found in the url of the page, `orsc` by default']"/>
 
 ## JASA
 
@@ -227,6 +237,14 @@ Subscribe to the cover images of the Nature journals, and get the latest publica
 
 <RouteEn author="yech1990" example="/nature/highlight" path="/nature/highlight" supportScihub="1"/>
 
+## Oxford University Press
+
+### Oxford Academic
+
+#### Journal
+
+<Route author="Fatpandac" example="/oup/journals/adaptation" path="/oup/journals/:name" :paramsDesc="['short name for a journal, can be found in URL']" anticrawler="1"/>
+
 ## Proceedings of The National Academy of Sciences (PNAS)
 
 ### Latest Articles - Articles by Topic
@@ -244,9 +262,19 @@ Subscribe to the cover images of the Nature journals, and get the latest publica
 
 ## PubMed
 
-### Trending
+### Trending articles
 
-<RouteEn author="yech1990" example="/pubmed/trending" path="/pubmed/trending" supportScihub="1"/>
+<RouteEn author="yech1990 nczitzk" example="/pubmed/trending" path="/pubmed/trending/:filter?" :paramsDesc="['Filters, can be found in URL']" supportScihub="1">
+
+::: tip Tip
+
+For the parameter **filter**, the `filter` parameter in the URL should be split into a string by `,`, here is an example.
+
+In <https://pubmed.ncbi.nlm.nih.gov/trending/?filter=simsearch1.fha&filter=pubt.clinicaltrial&filter=pubt.randomizedcontrolledtrial>, the filter parameters are `simsearch1.fha`, `pubt.clinicaltrial`, and `pubt.randomizedcontrolledtrial`. Therefore, the filter corresponding to the route should be filled with `simsearch1.fha,pubt.clinicaltrial,pubt.randomizedcontrolledtrial`, and the route is [`/pubmed/trending/simsearch1.fha,pubt .clinicaltrial,pubt.randomizedcontrolledtrial`](https://rsshub.app/pubmed/trending/simsearch1.fha,pubt.clinicaltrial,pubt.randomizedcontrolledtrial)
+
+:::
+
+</RouteEn>
 
 ## Science Journal
 
