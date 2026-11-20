@@ -58190,6 +58190,49 @@ export default {
     "url": "www.elecfans.com",
     "lang": "zh-CN"
   },
+  "elevenlabs": {
+    "routes": {
+      "/blog": {
+        "path": "/blog",
+        "name": "Blog",
+        "url": "elevenlabs.io/blog",
+        "example": "/elevenlabs/blog",
+        "categories": [
+          "new-media"
+        ],
+        "view": 0,
+        "maintainers": [
+          "ljh12138164"
+        ],
+        "description": "Full-text product updates, research, and customer stories from the official blog.",
+        "zh": {
+          "name": "博客",
+          "description": "通过官方 RSS 获取 ElevenLabs 的产品动态、研究文章和客户案例全文。"
+        },
+        "radar": [
+          {
+            "source": [
+              "elevenlabs.io/blog",
+              "elevenlabs.io/blog/:slug",
+              "elevenlabs.io/blog/rss.xml"
+            ],
+            "target": "/blog"
+          }
+        ],
+        "location": "blog.ts",
+        "module": () => import('@/routes/elevenlabs/blog.ts')
+      }
+    },
+    "apiRoutes": {},
+    "name": "ElevenLabs",
+    "url": "elevenlabs.io",
+    "lang": "en",
+    "description": "Product updates, research, and customer stories from ElevenLabs.",
+    "zh": {
+      "name": "ElevenLabs",
+      "description": "ElevenLabs 官方产品动态、研究文章与客户案例。"
+    }
+  },
   "elpais": {
     "routes": {
       "/news": {
@@ -87934,6 +87977,58 @@ export default {
     "categories": [
       "new-media"
     ]
+  },
+  "modal": {
+    "routes": {
+      "/blog": {
+        "path": "/blog",
+        "name": "Blog",
+        "url": "modal.com/blog",
+        "example": "/modal/blog",
+        "categories": [
+          "programming"
+        ],
+        "view": 0,
+        "maintainers": [
+          "ljh12138164"
+        ],
+        "description": "Full-text articles, engineering deep dives, product updates, and customer stories from the official Modal blog. Fetches up to 20 entries by default via the official Atom feed; supports the common `limit` parameter.",
+        "zh": {
+          "name": "博客",
+          "description": "通过官方 Atom Feed 发现并抓取 Modal 官方博客全文（涵盖工程实践、产品发布、研究文章与客户案例），默认获取最多 20 篇，支持通用 `limit` 参数。"
+        },
+        "radar": [
+          {
+            "source": [
+              "modal.com/blog",
+              "modal.com/blog/:slug",
+              "modal.com/blog/atom.xml"
+            ],
+            "target": "/blog"
+          }
+        ],
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false,
+          "supportRadar": true
+        },
+        "location": "blog.ts",
+        "module": () => import('@/routes/modal/blog.ts')
+      }
+    },
+    "apiRoutes": {},
+    "name": "Modal",
+    "url": "modal.com",
+    "lang": "en",
+    "description": "Engineering deep dives, product announcements, research notes, and customer stories from Modal.",
+    "zh": {
+      "name": "Modal",
+      "description": "Modal 官方工程博客、产品发布、研究文章与客户实践案例。"
+    }
   },
   "modb": {
     "routes": {
